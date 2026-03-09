@@ -7,7 +7,7 @@ import { Calendar, Plus, X, Clock, MapPin, Users, Palette } from 'lucide-react';
 import io from 'socket.io-client';
 import './index.css';
 
-const socket = io('http://localhost:3001');
+const socket = io(process.env.NODE_ENV === 'production' ? window.location.origin : 'http://localhost:3001');
 
 function App() {
   const [events, setEvents] = useState([]);
